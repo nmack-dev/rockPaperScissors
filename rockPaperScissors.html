@@ -11,68 +11,68 @@
 
     // Randomly selects the computer's move
     function computerPlay() {
-        var rand = Math.random() * 10
+        var rand = Math.random() * 10;
         if (rand <= 3) {
-            return 'paper'
+            return 'paper';
         }
         else if (rand > 3 && rand <= 7) {
-            return 'scissors'
+            return 'scissors';
         }
         else {
-            return 'rock'
+            return 'rock';
         }
     }
 
     // The logic behind a game round
     function playRound(playerSelection, computerSelection) {
-        var ps = playerSelection.toLowerCase()
-        var cs = computerSelection
+        var ps = playerSelection.toLowerCase();
+        var cs = computerSelection;
         
         // Lose conditions
         if (ps === 'rock' && cs === 'paper') {
-            return 'You lose, ' + cs + ' beats ' + ps + '.'
+            return 'You lose, ' + cs + ' beats ' + ps + '.';
         }
         else if (ps === 'scissors' && cs ==='rock') {
-            return 'You lose, ' + cs + ' beats ' + ps + '.'
+            return 'You lose, ' + cs + ' beats ' + ps + '.';
         }
         else if (ps === 'paper' && cs === 'scissors') {
-            return 'You lose, ' + cs + ' beats ' + ps + '.'
+            return 'You lose, ' + cs + ' beats ' + ps + '.';
         }
         // Win conditions
         else if (ps === 'rock' && cs === 'scissors') {
-            return 'You win, ' + ps + ' beats ' + cs + '.'
+            return 'You win, ' + ps + ' beats ' + cs + '.';
         }
         else if (ps === 'scissors' && cs ==='paper') {
-            return 'You win, ' + ps + ' beats ' + cs + '.'
+            return 'You win, ' + ps + ' beats ' + cs + '.';
         }
         else if (ps === 'paper' && cs === 'rock') {
-            return 'You win, ' + ps + ' beats ' + cs + '.'
+            return 'You win, ' + ps + ' beats ' + cs + '.';
         }
         // Tie condition
         else if (ps === cs) {
-            return 'Tie game, ' + cs + ' ties ' + ps + '.'
+            return 'Tie game, ' + cs + ' ties ' + ps + '.';
         }
     }
 
     // Game function that plays x amount of rounds
     function game(rounds) {
-        var n = 0
-        var playerWins = 0
-        var computerWins = 0
-        var playerSelection
-        var result
+        var n = 0;
+        var playerWins = 0;
+        var computerWins = 0;
+        var playerSelection;
+        var result;
         
         // Plays the game for x amount of rounds depending on user input
         while (n < rounds) {
-            playerSelection = window.prompt('Enter a Move', 'Rock, Paper, or Scissors')
-            result = playRound(playerSelection, computerPlay())
-            console.log(result)
+            playerSelection = window.prompt('Enter a Move', 'Rock, Paper, or Scissors');
+            result = playRound(playerSelection, computerPlay());
+            console.log(result);
             
             if (result.includes('win')) {
-                playerWins++
+                playerWins++;
             }
             else if (result.includes('lose')) {
-                computerWins++
+                computerWins++;
             }
 
             n++
@@ -80,13 +80,13 @@
 
         // Game win logic
         if (playerWins > computerWins) {
-            console.log('You win the game!')
+            console.log('You win the game!');
         }
         else if (playerWins < computerWins) {
-            console.log('You lose the game :(')
+            console.log('You lose the game :(');
         }
         else {
-            console.log('The game is a tie!')
+            console.log('The game is a tie!');
         }
     }
 
